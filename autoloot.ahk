@@ -83,7 +83,7 @@ if FileExist(configFilePath) {
     arr := StrSplit(coords, ",")
     yCoord := arr.Pop()
     xCoord := arr.Pop()
-    strToClick := "{Shift down} {Click, " . xCoord . ", " . yCoord . ", right} {Shift up}"
+    strToClick := "{Click, " . xCoord . ", " . yCoord . ", right}"
     sendsStrArr.Push(strToClick)
   }
 
@@ -156,7 +156,7 @@ Save_Config(Button, Info) {
     arr := StrSplit(coords, ",")
     yCoord := arr.Pop()
     xCoord := arr.Pop()
-    strToClick := "{Shift down} {Click, " . xCoord . ", " . yCoord . ", right} {Shift up}"
+    strToClick := "{Click, " . xCoord . ", " . yCoord . ", right}"
     sendsStrArr.Push(strToClick)
   }
 
@@ -179,8 +179,10 @@ main.Show()
 
 Get_Loot(*) {
   MouseGetPos(&previousX, &previousY)
+  SendInput("{Shift down}")
   for str in sendsStrArr {
-    Send(str)
+    SendInput(str)
   }
+  SendInput("{Shift up}")
   MouseMove(previousX, previousY)
 }

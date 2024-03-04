@@ -83,7 +83,7 @@ if FileExist(configFilePath) {
     arr := StrSplit(coords, ",")
     yCoord := arr.Pop()
     xCoord := arr.Pop()
-    strToClick := "+{Click, " . xCoord . "," . yCoord . ", right}"
+    strToClick := "{Shift down} {Click, " . xCoord . ", " . yCoord . ", right} {Shift up}"
     sendsStrArr.Push(strToClick)
   }
 
@@ -156,7 +156,7 @@ Save_Config(Button, Info) {
     arr := StrSplit(coords, ",")
     yCoord := arr.Pop()
     xCoord := arr.Pop()
-    strToClick := "+{Click, " . xCoord . "," . yCoord . ", right}"
+    strToClick := "{Shift down} {Click, " . xCoord . ", " . yCoord . ", right} {Shift up}"
     sendsStrArr.Push(strToClick)
   }
 
